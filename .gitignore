@@ -1,0 +1,20 @@
+# CMake generated files
+build/
+
+# Compiled files
+*.o
+*.a
+*.so
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# IDE settings
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

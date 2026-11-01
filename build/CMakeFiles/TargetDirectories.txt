@@ -1,3 +1,0 @@
-/home/mint/Projects/BINGO/build/CMakeFiles/bingo.dir
-/home/mint/Projects/BINGO/build/CMakeFiles/edit_cache.dir
-/home/mint/Projects/BINGO/build/CMakeFiles/rebuild_cache.dir
