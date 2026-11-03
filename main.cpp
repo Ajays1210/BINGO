@@ -8,22 +8,21 @@ int main() {
     
     game.displayBoard();
 
-    if (game.markNumber(12))
-        std::cout << "\n12 marked successfully\n";
-    else
-        std::cout << "\nInvlaid move\n";
-
-    if (game.markNumber(12))
-        std::cout << "12 marked successfully!\n";
-    else
-        std::cout << "12 was already marked\n";
+    int number;
     
-    if (game.markNumber(30))
-        std::cout << "\n30 marked successfully\n";
-    else
-        std::cout << "\n30 is Invlaid\n";
+    std::cout << "\nEnter the five numbers from the first diagonal: ";
 
-    game.displayBoard();
+    for (int i = 0; i < 5; ++i) {
+        std::cin >> number;
+        game.markNumber(number);
+    }
+
+    std::cout << "\nCompleted diagonals: "
+              << game.countCompletedDiagonals() << std::endl;
+
+    std::cout << "\nWinner: "
+              << (game.checkWinner() ? "Yes" : "No")
+              << std::endl;
 
 	return 0;
 }

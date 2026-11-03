@@ -8,9 +8,16 @@ private:
 
 public:
     Game();
+
     void generateBoard();
     void displayBoard();
     bool markNumber(int number);
+
+    int countCompletedRows();
+    int countCompletedColumns();
+    int countCompletedDiagonals();
+
+    bool checkWinner();
 };
 
 #endif

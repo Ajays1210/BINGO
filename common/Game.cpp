@@ -70,3 +70,83 @@ bool Game::markNumber(int number) {
 
     return false;
 }
+
+int Game::countCompletedRows() {
+    int completedRows = 0;
+
+    for (int row = 0; row < 5; ++row) {
+        bool rowComplete = true;
+
+        for (int column = 0; column < 5; ++column) {
+            if (!marked[row][column]) {
+                rowComplete = false;
+                break;
+            }
+        }
+
+        if (rowComplete) {
+            completedRows++;
+        }
+    }
+
+    return completedRows;
+}
+
+int Game::countCompletedColumns() {
+    int completedColumns = 0;
+    
+    for (int column = 0; column < 5; ++column) {
+        bool columnComplete = true;
+
+        for (int row = 0; row < 5; ++row) {
+            if (!marked[row][column]) {
+                columnComplete = false;
+                break;
+            }
+        }
+
+        if (columnComplete) {
+            completedColumns++;
+        }
+    }
+    return completedColumns;
+}
+
+int Game::countCompletedDiagonals() {
+    int completedDiagonals = 0;
+
+    bool firstDiagonal = true;
+    bool secondDiagonal = true;
+
+    for (int i = 0; i < 5; ++i) {
+        //Top-left to bottom-right
+        if (!marked[i][i]) {
+            firstDiagonal = false;
+        }
+
+        //Top-right to bottom-left
+        if (!marked[i][4 - i]) {
+            secondDiagonal = false;
+        }
+    }
+
+    if (firstDiagonal) {
+        completedDiagonals++;
+    }
+
+    if (secondDiagonal) {
+        completedDiagonals++;
+    }
+
+    return completedDiagonals;
+}
+
+bool Game::checkWinner() {
+    int totalLines = 0;
+    
+    totalLines += countCompletedRows();
+    totalLines += countCompletedColumns();
+    totalLines += countCompletedDiagonals();
+
+    return totalLines >= 5;
+}
